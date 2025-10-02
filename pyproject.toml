@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clustrx"
+version = "0.1.0"
+description = "clustRX: cluster similar sequences from BLAST/HMMER outputs and generate FASTA files."
+authors = [{ name = "Mario Benítez-Prián", email = "mario.benitezprian@gmail.com"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "networkx",
+]
+
+[project.scripts]
+clustrx = "clustrx.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["clustrx"]

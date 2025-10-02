@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.pyo
+
+# Virtual envs
+env/
+venv/
+*.venv
+
+# Temporary files
+*.swp
+.DS_Store
+
+# Test output
+temp/
+output/
