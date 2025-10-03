@@ -4,13 +4,17 @@ from .clustrx import read_pairs, read_fasta, build_clusters, write_clusters
 
 def main():
     parser = argparse.ArgumentParser(
-        description="clustRX: cluster similar sequences from BLAST/HMMER outputs and generate FASTA files."
+        description=(
+        "clustRX: Cluster sequences from BLAST/HMMER outputs and generate FASTA groups.\n\n"
+        "Author: Mario Benítez-Prián | Please cite clustRX if used in your research.\n"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument("-q", "--queries", required=True, help="File with query IDs")
-    parser.add_argument("-t", "--hits", required=True, help="File with target IDs")
+    parser.add_argument("-hi", "--hits", required=True, help="File with hit IDs")
     parser.add_argument("-f", "--fasta", required=True, help="FASTA file with all sequences")
-    parser.add_argument("--min-cluster-size", type=int, default=1, help="Minimum cluster size to output")
-    parser.add_argument("--outdir", default="output", help="Output directory")
+    parser.add_argument("-min", "--min-cluster-size", type=int, default=2, help="Minimum cluster size to output (default=2). Note: clusters are built from pairs, so the minimum possible size is 2.")
+    parser.add_argument("--outdir", default="clustrx_output", help="Output directory")
 
     args = parser.parse_args()
 
